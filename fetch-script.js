@@ -27,7 +27,7 @@ function createMeme(id, url, title, likeNumber) {
 // START CODING BELOW.
 
 // TODO: Add correct URL.
-const SERVER_URL = undefined;
+const SERVER_URL = 'https://javascriptclass-22d93.firebaseio.com/memes.json?print=pretty';
 
 /**
  * Handles list of memes fetched from the server. `data` is basically an array
@@ -37,7 +37,7 @@ const SERVER_URL = undefined;
  */
 function dataFetchSuccessCallback(data) {
   // TODO: Define an empty list of memes to return.
-  let memes = undefined;
+  let memes = [];
 
   // Print out the data to console to see the structure of the response.
   // Use Console or open the Inspector to see it.
@@ -50,22 +50,24 @@ function dataFetchSuccessCallback(data) {
   // by 1 for each meme in the array.
   for (let id in data) {
     // TODO: Replace this with the correct object from "data".
-    const meme = undefined;
+    const meme = data[id];
 
     // TODO: get the URL. It has the key "url" in the JSON.
-    const memeURL = undefined; // Replace this with correct object from the correct key.
+    const memeURL = meme.url; // Replace this with correct object from the correct key.
 
     // TODO: get the title. It has the key "title" in the JSON.
-    const memeTitle = undefined; // Replace this with correct object from the correct key from "meme".
+    const memeTitle = meme.title; // Replace this with correct object from the correct key from "meme".
 
     // TODO: get the like count. It has the key "like_count" in the JSON.
-    const memeLikeNumber = undefined; // Replace this with correct object from the correct key from meme.
+    const memeLikeNumber = meme.like_count; // Replace this with correct object from the correct key from meme.
 
     // TODO: Create a new Meme object with the title, URL and like number. Look at the
     // function `createMeme()` above.
-    const aMeme = undefined;
+    const aMeme = createMeme(i, memeURL, memeTitle, memeLikeNumber);
 
     // TODO: Add the new Meme object to the list of memes "memes".
+    memes.push(aMeme);
+    i++;
   }
   return memes;
 }

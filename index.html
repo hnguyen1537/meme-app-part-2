@@ -35,7 +35,7 @@
   <script src="script.js"></script>
   
   <!-- TODO: import fetch-script.js in the next line by uncommenting out the following lines from line 38 to line 58 -->
-  <!-- <script src="fetch-script.js"></script>
+  <script src="fetch-script.js"></script>
   <script>
       // Set up the controller here because this function is only called
       // after the response is received. Since we only create the controller after
@@ -50,13 +50,20 @@
               // SET UP THE CONTROLLER
               const memeCtrl = new MemeController(memes, 0);
               setUpButton(memeCtrl);
-          } 
+
+             // Function for next button
+             $('#nextButton').click(function() {
+            displayMeme(memeCtrl.nextMeme());
+             });
+            // Get current meme
+             displayMeme(memeCtrl.getCurrentMeme());
+               }
       });
       
-  </script> -->
+  </script> 
   
   <!-- TODO: Remove or comment out the following script snippet below from line 61 to line 62 -->
-  <script>
+ <!--/<script>
       let memes = [];
       for (let i = 0; i < MEME_URLS.length; i++) {
           // Create a new meme with the ID is i, meme URL and meme title.
@@ -67,5 +74,5 @@
       // SET UP THE CONTROLLER
       const memeCtrl = new MemeController(memes, 0);
       setUpButton(memeCtrl);
-  </script>
+  </script> --> 
 </body>
